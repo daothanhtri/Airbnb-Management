@@ -94,12 +94,47 @@ header nav ul li a:hover {
     color: var(--primary-color); /* Hover color for nav links */
 }
 
+header .search-bar {
+    position: relative; /* Make search bar relative for absolute positioning of button */
+    display: flex;
+    align-items: center;
+}
+
 header .search-bar input {
     padding: 10px 15px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
-    color: var(--secondary-color);
+    color: #777;
+    width: 200px; /* Adjust width as needed */
+}
+
+header .search-bar button.search-button {
+    position: absolute; /* Position button inside search bar */
+    right: 0; /* Align to the right edge of search bar */
+    top: 0;
+    bottom: 0; /* Stretch button vertically to input height */
+    padding: 0 15px; /* Adjust horizontal padding of the button */
+    border: none; /* Remove button border */
+    background-color: transparent; /* Make button background transparent */
+    color: #777; /* Icon color */
+    font-size: 16px; /* Icon size */
+    cursor: pointer; /* Set cursor to pointer */
+    border-radius: 0 5px 5px 0; /* Round right corners to match input */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Hover transition */
+    display: flex; /* Center icon inside button */
+    align-items: center;
+    justify-content: center;
+}
+
+header .search-bar button.search-button:hover {
+    background-color: #eee; /* Light grey background on hover to indicate clickability */
+    color: #555; /* Darker grey on hover */
+}
+
+header .search-bar button.search-button:focus {
+    outline: none; /* Remove focus outline if desired */
+    background-color: #ddd; /* Slightly darker background on focus */
 }
 
 /* --- Hero Section --- */
