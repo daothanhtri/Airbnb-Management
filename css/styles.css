@@ -1,0 +1,449 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* --- Color Palette --- */
+:root {
+    --primary-color: #007bff;        /* Professional Blue - Bootstrap Primary */
+    --primary-dark: #0056b3;         /* Darker Blue for Hover */
+    --secondary-color: #6c757d;      /* Muted Grey - Bootstrap Secondary */
+    --light-grey: #f8f9fa;
+    --DE-color: #e4eb9c;          /* Very Light Grey - Bootstrap Light */
+    --body-color: #212529;            /* Dark Grey - Bootstrap Body Color */
+    --heading-color: #343a40;         /* Slightly Lighter Dark Grey for Headings */
+    --border-color: #dee2e6;          /* Light Border Grey - Bootstrap Border */
+    --white-color: #ffffff;           /* White */
+    --overlay-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+/* --- Global Styles --- */
+body {
+    font-family: 'Roboto', sans-serif; /* Consider linking Roboto or using a system font */
+    margin: 0;
+    padding: 0;
+    color: var(--body-color);
+    background-color: var(--DE-color); /* Light grey background for overall page */
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    margin-top: 0; /* Reset default top margin */
+    font-weight: bold;
+    color: var(--heading-color); /* Darker heading color */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color); /* Primary link color */
+    transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+a:hover {
+    color: var(--primary-dark); /* Darker link color on hover */
+}
+
+button {
+    background-color: var(--primary-color); /* Primary button color */
+    color: var(--white-color);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--primary-dark); /* Darker button color on hover */
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--DE-color); /* White header background */
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow for header */
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: var(--secondary-color); /* Slightly darker navigation links */
+    font-weight: 500;
+    display: block; /* Make links clickable area larger */
+    padding: 8px 0; /* Add vertical padding to links */
+}
+
+header nav ul li a:hover {
+    color: var(--primary-color); /* Hover color for nav links */
+}
+
+header .search-bar input {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--secondary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    overflow: hidden; /* Ensure overlay stays within bounds */
+    text-align: center;
+    color: var(--white-color); /* Text color for hero section */
+}
+
+.hero img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+}
+
+.hero::before { /* Dark overlay for image */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--overlay-color); /* Semi-transparent black */
+}
+
+.hero-content {
+    position: absolute; /* Position content over image */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center content */
+    z-index: 1; /* Ensure content is above overlay */
+    padding: 20px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.2); /* Subtle text shadow */
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* --- Dashboard Sections --- */
+.dashboard-overview,
+.guest-management,
+.aircon-control,
+.booking-sync,
+.room-status-monitoring,
+.energy-management,
+.notification-system,
+.mobile-app {
+    padding: 40px 30px;
+    text-align: left; /* Left-align text in sections */
+    background-color: var(--white-color); /* White background for sections */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Subtle shadow for sections */
+    overflow: hidden; /* Clearfix for potential float issues */
+}
+
+.dashboard-overview h2,
+.guest-management h2,
+.aircon-control h2,
+.booking-sync h2,
+.room-status-monitoring h2,
+.energy-management h2,
+.notification-system h2,
+.mobile-app h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--border-color); /* Light border under section titles */
+    padding-bottom: 10px;
+}
+
+/* --- Dashboard Overview Content --- */
+.overview-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Spacing between overview boxes */
+    margin-bottom: 30px;
+}
+
+.overview-content > div {
+    background-color: var(--light-grey); /* Light grey background for overview boxes */
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1; /* Equal width boxes */
+}
+
+.overview-content h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.overview-content ul, .overview-content table {
+    margin-top: 0;
+    padding-left: 20px; /* Indent lists */
+}
+.overview-content li {
+    margin-bottom: 8px;
+}
+.overview-content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.overview-content th, .overview-content td {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    text-align: left;
+}
+.overview-content th {
+    background-color: var(--light-grey);
+    font-weight: bold;
+}
+
+/* --- Guest Management --- */
+.guest-management .guest-list,
+.guest-management .guest-interaction {
+    margin-bottom: 20px; /* Add spacing between guest management sections */
+}
+.guest-list h3, .guest-interaction h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.guest-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    display: block; /* Enable horizontal scrolling */
+    overflow-x: auto; /* Horizontal scroll if table is wider than container */
+    min-width: 100%; /* Ensure table takes up at least full width */
+}
+.guest-list th, .guest-list td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap; /* Prevent text wrapping in table cells */
+}
+.guest-list th {
+    background-color: var(--light-grey);
+    font-weight: bold;
+}
+.guest-interaction textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    resize: vertical; /* Allow vertical resizing */
+    color: var(--body-color);
+}
+.guest-interaction button {
+    margin-top: 15px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #2d5128; /* Dark footer background */
+    color: var(--white-color);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0; /* Spacing below footer links */
+    display: flex;
+    justify-content: center;
+}
+
+footer .footer-links ul li {
+    margin: 0 15px;
+}
+
+footer .footer-links ul li a {
+    color: var(--light-grey); /* Lighter footer link color */
+}
+
+footer .footer-links ul li a:hover {
+    color: var(--white-color); /* White on hover */
+}
+
+footer .contact-info p {
+    margin: 5px 0;
+    color: #999; /* Even lighter contact info color */
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet Styles (up to 768px) */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+    header .logo {
+        font-size: 24px;
+    }
+    header nav ul li {
+        margin-left: 15px;
+    }
+    header nav ul li a {
+        font-size: 14px;
+        padding: 6px 0;
+    }
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    .hero-content p {
+        font-size: 16px;
+    }
+    .dashboard-overview,
+    .guest-management,
+    .aircon-control,
+    .booking-sync,
+    .room-status-monitoring,
+    .energy-management,
+    .notification-system,
+    .mobile-app {
+        padding: 30px 20px;
+        margin-bottom: 15px;
+    }
+    .overview-content {
+        flex-direction: column; /* Stack overview boxes on tablets */
+        gap: 15px;
+    }
+    .overview-content > div {
+        padding: 15px;
+    }
+    .overview-content h3 {
+        font-size: 16px;
+    }
+    .dashboard-overview h2,
+    .guest-management h2,
+    .aircon-control h2,
+    .booking-sync h2,
+    .room-status-monitoring h2,
+    .energy-management h2,
+    .notification-system h2,
+    .mobile-app h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    .guest-list h3, .guest-interaction h3 {
+        font-size: 18px;
+    }
+}
+
+/* Phone Styles (up to 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+        flex-direction: column; /* Stack logo and nav on phones */
+        align-items: stretch; /* Full width items */
+    }
+    header .logo {
+        font-size: 20px;
+        margin-bottom: 10px; /* Add margin below logo in stacked header */
+        text-align: center; /* Center logo on phone */
+    }
+    header nav ul {
+        flex-direction: column; /* Stack nav links on phones */
+        text-align: center; /* Center nav links on phone */
+    }
+    header nav ul li {
+        margin-left: 0; /* Remove left margin for stacked nav items */
+        margin-bottom: 10px; /* Add margin between stacked nav items */
+    }
+    header nav ul li a {
+        font-size: 14px;
+        padding: 8px 10px; /* Add horizontal padding for better touch area */
+        display: inline-block; /* Adjust display for padding to work horizontally */
+        width: 100%; /* Make nav links full width of nav bar */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    header .search-bar {
+        display: none; /* Hide search bar on phone for simplicity - consider placing in menu */
+    }
+    .hero-content h1 {
+        font-size: 28px;
+    }
+    .hero-content p {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .hero-content button {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    .dashboard-overview,
+    .guest-management,
+    .aircon-control,
+    .booking-sync,
+    .room-status-monitoring,
+    .energy-management,
+    .notification-system,
+    .mobile-app {
+        padding: 20px 15px;
+        margin-bottom: 10px;
+    }
+    .overview-content {
+        gap: 10px;
+    }
+    .overview-content > div {
+        padding: 10px;
+    }
+    .overview-content h3 {
+        font-size: 15px;
+    }
+    .dashboard-overview h2,
+    .guest-management h2,
+    .aircon-control h2,
+    .booking-sync h2,
+    .room-status-monitoring h2,
+    .energy-management h2,
+    .notification-system h2,
+    .mobile-app h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .guest-list h3, .guest-interaction h3 {
+        font-size: 17px;
+    }
+    footer {
+        padding: 20px 0;
+    }
+    footer .footer-links ul {
+        flex-direction: column; /* Stack footer links on phones */
+        align-items: center; /* Center footer links */
+        margin-bottom: 10px; /* Reduce bottom margin */
+    }
+    footer .footer-links ul li {
+        margin: 5px 0; /* Adjust margin for stacked footer links */
+    }
+    footer .contact-info p {
+        font-size: 13px;
+    }
+   
+}
