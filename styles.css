@@ -146,9 +146,27 @@ header .search-bar button.search-button:focus {
 }
 
 .hero img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove extra space below image */
+    max-width: 100%; /* Ensure image width is never wider than its container */
+    height: 600px;    /* Maintain aspect ratio while scaling width */
+    display: block;   /* Remove extra space below the image in some cases */
+    width: 80%;
+}
+
+@media (min-width: 768px) { /* For screens wider than 768px (typical tablet size) */
+    .hero {
+        flex-direction: row; /* Display image and content in a row on larger screens */
+        text-align: left; /* Align text to the left on larger screens */
+        justify-content: space-between; /* Distribute space between image and content */
+    }
+    .hero-content {
+        margin-top: 0; /* Remove top margin when content is beside the image */
+        margin-left: 20px; /* Add left margin to separate content from image */
+        max-width: 50%; /* Limit content width on larger screens */
+    }
+    .hero img {
+        max-width: 80%; /* Limit image width on larger screens */
+        justify-self: center;
+    }
 }
 
 .hero::before { /* Dark overlay for image */
